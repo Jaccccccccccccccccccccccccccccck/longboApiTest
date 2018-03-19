@@ -8,14 +8,14 @@ public class requestTest {
     public static void main(String[] args) {
         HttpUtil httpUtil = new HttpUtil();
 
-        login("xxh1","xxh1",getLoginPageToken());
+        login("user","user",getLoginPageToken());
         System.out.println(apiGetTableInfo("JL_BASE_1102","1","100"));
 //        System.out.println(urlTest("/userManagement/user/getAll?pageNumber=1&pageSize=10&sort=id"));
     }
 
 
     public static String getLoginPageToken(){
-        String requestURL = "http://127.0.0.1:8080/login";
+        String requestURL = "http://127.0.0.1:8080/longboApis/login";
         String token = "";
         String ans = HttpUtil.doGet(requestURL);
         try {
@@ -28,7 +28,7 @@ public class requestTest {
     }
 
     public static String login(String username, String password, String token){
-        String requestURL = "http://127.0.0.1:8080/login";
+        String requestURL = "http://127.0.0.1:8080/longboApis/login";
         Map paras = new HashMap();
         paras.put("username",username);
         paras.put("password",password);
@@ -39,7 +39,7 @@ public class requestTest {
     }
 
     public static String apiGetTableInfo(String tableName, String pageNum, String pageSize){
-        String requestURL = "http://127.0.0.1:8080/jlzx/"+tableName+"/"+pageNum+"/"+pageSize;
+        String requestURL = "http://127.0.0.1:8080/longboApis/jlzx/"+tableName+"/"+pageNum+"/"+pageSize;
         String ans = HttpUtil.doGet(requestURL);
         return ans;
     }
