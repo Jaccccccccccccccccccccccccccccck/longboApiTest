@@ -10,7 +10,9 @@ public class requestTest {
 
         login("user","user",getLoginPageToken());
         System.out.println(apiGetTableInfo("JL_BASE_1102","1","100"));
-//        System.out.println(urlTest("/userManagement/user/getAll?pageNumber=1&pageSize=10&sort=id"));
+//        System.out.println(urlTest("http://localhost:8080/longboApis/jlzx/JL_BASE_2003/1/10"));
+//        System.out.println(urlTest("http://localhost:8080/longboApis/admin/main"));
+
     }
 
 
