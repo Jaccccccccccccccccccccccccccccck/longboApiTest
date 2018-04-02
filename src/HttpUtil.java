@@ -73,6 +73,7 @@ public class HttpUtil {
         // 在提交请求之前 测试连接是否可用
         configBuilder.setStaleConnectionCheckEnabled(true);
         requestConfig = configBuilder.build();
+        httpClient = HttpClients.custom().setDefaultCookieStore(cookieStore).build();
 
     }
 

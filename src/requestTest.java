@@ -1,18 +1,17 @@
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class requestTest {
     public static void main(String[] args) {
-        HttpUtil httpUtil = new HttpUtil();
-
-        login("user","user",getLoginPageToken());
-        System.out.println(apiGetTableInfo("JL_BASE_1102","1","100"));
+        //登录
+        System.out.println(login("test","test",getLoginPageToken()));
+        //请求某张表数据
+        System.out.println(apiGetTableInfo("JL_BASE_2006","1","100"));
     }
 
-
+    //获取登陆界面-get
     public static String getLoginPageToken(){
         String requestURL = "http://180.153.108.40:8080/longboApis/login";
         String token = "";
@@ -25,7 +24,7 @@ public class requestTest {
         }
         return token;
     }
-
+    //登陆-post
     public static String login(String username, String password, String token){
         String requestURL = "http://180.153.108.40:8080/longboApis/login";
         Map paras = new HashMap();
@@ -36,7 +35,7 @@ public class requestTest {
         return ans;
 
     }
-
+    //表数据请求-get
     public static String apiGetTableInfo(String tableName, String pageNum, String pageSize){
         String requestURL = "http://180.153.108.40:8080/longboApis/jlzx/"+tableName+"/"+pageNum+"/"+pageSize;
         String ans = HttpUtil.doGet(requestURL);
